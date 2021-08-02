@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Getting Started</title>
+
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Getting Started</h1>
+
+
+
+<p> </p>
+<div id="the-disposition-effect" class="section level1">
+<h1>The Disposition Effect</h1>
+<p>In recent years, an irrational phenomenon in financial markets is grabbing the attention of behavioral economists: the disposition effect. Firstly discovered by H. Shefrin and M. Statman (1985), the disposition effect consists in the realization that investors are more likely to sell an asset when it is gaining value compared to when it is losing value. A phenomenon which is closely related to sunk costs’ bias, diminishing sensitivity, and loss aversion.</p>
+<p>From 1985 until now, the disposition effect has been documented in US retail stock investors as well as in foreign retail investors and even among professionals and institutions. By the time, it is a well-established fact that the disposition effect is a real behavioral anomaly that strongly influences the final profits (or losses) of investors. Furthermore, being able to correctly capture these irrational behaviors timely is even more important in periods of high financial volatility as nowadays.</p>
+<p>The <code>dispositionEffect</code> package allows to quickly evaluate the presence of disposition effect’s behaviors of an investor based solely on his transactions and the market prices of the traded assets.</p>
+<p> </p>
+</div>
+<div id="installation-loading" class="section level1">
+<h1>Installation &amp; Loading</h1>
+<p>You can install the released version of <code>dispositionEffect</code> from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dispositionEffect&quot;</span>)</span></code></pre></div>
+<p>Otherwise, you can also install the development version from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;marcozanotti/dispositionEffect&quot;</span>)</span></code></pre></div>
+<p>To load the package simply use the usual <code>library</code> function.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dispositionEffect)</span></code></pre></div>
+<p> </p>
+</div>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<p>The disposition effect analysis is performed on two fundamental types of data frames:</p>
+<ul>
+<li>portfolio transactions, that is all the financial transactions an investor did during a specific period of time. A single transaction is made up of 6 features: the investor id, the asset id, the type of the transaction (it can be a buy or a sell), the traded quantity, the traded price, and the datetime.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(investor)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 6</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor type  asset quantity price datetime           </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;             </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 4273N    B     ACO         45  3.94 2018-04-09 11:17:00</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 4273N    B     LSUG       450  2.05 2018-05-17 15:06:00</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 4273N    S     ACO         45  4.18 2018-05-22 17:11:00</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 4273N    B     IT3S       230  1.10 2018-05-28 14:30:00</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 4273N    S     IT3S       230  1.03 2018-06-01 15:27:00</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 4273N    B     LSUG        90  2.53 2018-06-01 15:43:00</span></span></code></pre></div>
+<ul>
+<li>market prices, that is the prices found on the stock markets for each traded asset and each transaction datetimes.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(marketprices)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   asset            datetime   price</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   ACO 2018-04-09 11:17:00 3.94000</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   AST 2018-04-09 11:17:00 2.19600</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  IT3S 2018-04-09 11:17:00 1.01840</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  LSUG 2018-04-09 11:17:00 2.24950</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5   TFI 2018-04-09 11:17:00 0.40575</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   ACO 2018-05-17 15:06:00 4.56000</span></span></code></pre></div>
+<p> </p>
+</div>
+<div id="gains-and-losses" class="section level1">
+<h1>Gains and Losses</h1>
+<p>Based solely on this two data frames it is possible to compute the so-called realized gains (RG), realized losses (RL), paper gains (PG), and paper losses (PL), as defined by L. Mazzucchelli et al. (2021).</p>
+<p>To sum up the main concepts are the followings:</p>
+<ul>
+<li><p>Realized Gain / Loss =&gt; whenever an investor closes a position in its portfolio in gain / loss</p></li>
+<li><p>Paper Gain / Loss =&gt; all the open positions at the moment of the transaction, and all the partially closed positions.</p></li>
+</ul>
+<p>The <code>portfolio_compute</code> is the core interface of the package and it is used to perform all the gains and losses computations.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>portfolio_results <span class="ot">&lt;-</span> <span class="fu">portfolio_compute</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">portfolio_transactions =</span> investor, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">market_prices =</span> marketprices,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">&quot;count&quot;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(portfolio_results, <span class="sc">-</span>datetime)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor asset quantity price RG_count RL_count PG_count PL_count</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    4273N   ACO      222 2.840        1        0        6        0</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    4273N   AST        0 0.000        0        1        0        0</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    4273N  IT3S        0 0.000        0        1        0        0</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    4273N  LSUG        0 0.000        2        0        4        0</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    4273N   TFI     1400 0.284        0        0        0        0</span></span></code></pre></div>
+<p>The result is a new data frame containing RG, PG, RL, and PL for each traded asset and the updated investor’s portfolio.</p>
+<p> </p>
+</div>
+<div id="disposition-effect" class="section level1">
+<h1>Disposition Effect</h1>
+<p>Once that gains and losses have been computed, it is finally possible to evaluate both the disposition effect of the investor and of each traded assets, where the disposition effect is defined as:</p>
+<p><span class="math display">\[DE = \bigg(\frac{RG}{RG + PG}\bigg) - \bigg(\frac{RL}{RL + PL}\bigg)\]</span></p>
+<p>The DE varies between -1 and 1. Positive DE values show the presence of disposition effect irrational behaviors, while negative values show the presence of opposite disposition effect behaviors. A value of zero show that no disposition effect exists.</p>
+<p>The function <code>disposition_effect</code> allow us to compute it.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assets&#39; disposition effects</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">disposition_effect</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">realized_gains =</span> portfolio_results<span class="sc">$</span>RG_count, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">paper_gains =</span> portfolio_results<span class="sc">$</span>PG_count, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">realized_losses =</span> portfolio_results<span class="sc">$</span>RL_count, </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">paper_losses =</span> portfolio_results<span class="sc">$</span>PL_count</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  0.1428571 -1.0000000 -1.0000000  0.3333333  0.0000000</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># investor&#39;s disposition effect</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">disposition_effect</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">realized_gains =</span> portfolio_results<span class="sc">$</span>RG_count, </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">paper_gains =</span> portfolio_results<span class="sc">$</span>PG_count, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">realized_losses =</span> portfolio_results<span class="sc">$</span>RL_count, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">paper_losses =</span> portfolio_results<span class="sc">$</span>PL_count</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mean</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] -0.3047619</span></span></code></pre></div>
+<p>However, one may prefer to use the <code>disposition_compute</code> function directly on the results obtained from <code>portfolio_compute</code> for quick and clean computations.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assets&#39; disposition effects</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>asset_de <span class="ot">&lt;-</span> <span class="fu">disposition_compute</span>(<span class="at">gainslosses =</span> portfolio_results)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>asset_de</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor asset   DE_count</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    4273N   ACO  0.1428571</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    4273N   AST -1.0000000</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    4273N  IT3S -1.0000000</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    4273N  LSUG  0.3333333</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    4273N   TFI  0.0000000</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># investor&#39;s disposition effect</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>investor_de <span class="ot">&lt;-</span> <span class="fu">disposition_compute</span>(<span class="at">gainslosses =</span> portfolio_results, <span class="at">aggregate_fun =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>investor_de</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor   DE_count</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    4273N -0.3047619</span></span></code></pre></div>
+<p>Moreover, by means of the <code>disposition_summary</code> function it is also easy to summarize the disposition effect behavior of the investor.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># investor&#39;s disposition effect summary statistics</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">disposition_summary</span>(<span class="at">gainslosses =</span> portfolio_results)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor   stat   DE_count</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    4273N    Min -1.0000000</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    4273N     Q1 -1.0000000</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    4273N Median  0.0000000</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    4273N     Q3  0.1428571</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    4273N   Mean -0.3047619</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    4273N    Max  0.3333333</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7    4273N  StDev  0.6455850</span></span></code></pre></div>
+<p> </p>
+</div>
+<div id="plotting" class="section level1">
+<h1>Plotting</h1>
+<p>Finally, by means of <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a>, stunning charts can be produced to easily spot the presence of the disposition effect.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>asset_de <span class="sc">%&gt;%</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> asset, <span class="at">y =</span> DE_count, <span class="at">fill =</span> asset)) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Disposition Effect results of the traded assets&quot;</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle =</span> <span class="st">&quot;Method Count&quot;</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<p><img src="data:image/png;base64,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" width="100%" style="display: block; margin: auto;" /></p>
+<p> </p>
+<hr />
+<p>For more detailed tutorials on disposition effect visit <a href="https://marcozanotti.github.io/dispositionEffect/">dispositionEffect</a>.</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

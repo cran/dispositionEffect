@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>The Analysis of Disposition Effect</title>
+
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">The Analysis of Disposition Effect</h1>
+
+
+
+<p> </p>
+<div id="the-disposition-effect" class="section level1">
+<h1>The Disposition Effect</h1>
+<p>In recent years, an irrational phenomenon in financial markets is grabbing the attention of behavioral economists: the disposition effect. Firstly discovered by H. Shefrin and M. Statman (1985), the disposition effect consists in the realization that investors are more likely to sell an asset when it is gaining value compared to when it is losing value. A phenomenon which is closely related to sunk costs’ bias, diminishing sensitivity, and loss aversion.</p>
+<p>From 1985 until now, the disposition effect has been documented in US retail stock investors as well as in foreign retail investors and even among professionals and institutions. By the time, it is a well-established fact that the disposition effect is a real behavioral anomaly that strongly influences the final profits (or losses) of investors. Furthermore, being able to correctly capture these irrational behaviors timely is even more important in periods of high financial volatility as nowadays.</p>
+<p>The <code>dispositionEffect</code> package allows to quickly evaluate the presence of disposition effect’s behaviors of an investor based solely on his transactions and the market prices of the traded assets.</p>
+<p> </p>
+</div>
+<div id="package-loading" class="section level1">
+<h1>Package loading</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dispositionEffect)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gghalves)</span></code></pre></div>
+<p> </p>
+</div>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<p>The dataset <code>DEanalysis</code> is provided within the package allowing to reproduce a full analysis on the disposition effect.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;DEanalysis&quot;</span>)</span></code></pre></div>
+<p>The disposition effect analysis is performed on two fundamental types of data frames:</p>
+<ul>
+<li><p>portfolio transactions, that is all the financial transactions an investor did during a specific period of time. A single transaction is made up of 6 features: the investor id, the asset id, the type of the transaction (it can be a buy or a sell), the traded quantity, the traded price, and the datetime.</p></li>
+<li><p>market prices, that is the prices found on the stock markets for each traded asset and each transaction datetimes.</p></li>
+</ul>
+<div id="portfolio-transactions" class="section level2">
+<h2>Portfolio Transactions</h2>
+<p>First of all, we need to extract and understand the structure of the transaction dataset.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>trx <span class="ot">&lt;-</span> DEanalysis<span class="sc">$</span>transactions <span class="co"># transactions</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trx)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor type asset quantity   price            datetime</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    44382    B  3NGL    15000  0.2540 2017-10-25 14:16:00</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    44382    B  3NGL     5000  0.2485 2017-10-26 17:35:00</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    44382    B  3NGL     4000  0.2400 2017-10-27 10:20:00</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    44382    B GAS3L    23000  0.1880 2017-10-27 17:06:00</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    44382    B  3NGL     5000  0.2214 2017-10-27 17:35:00</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    44382    B  3NGS      130 32.7650 2017-10-30 17:35:00</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(trx)</span></code></pre></div>
+<table>
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">trx</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">4917</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">POSIXct</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">character</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: POSIXct</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">min</th>
+<th align="left">max</th>
+<th align="left">median</th>
+<th align="right">n_unique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">datetime</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">2010-01-05 11:38:00</td>
+<td align="left">2018-12-18 13:24:00</td>
+<td align="left">2013-07-30 16:25:00</td>
+<td align="right">4766</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">investor</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">type</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">asset</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">337</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">quantity</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3081.49</td>
+<td align="right">15580.36</td>
+<td align="right">0</td>
+<td align="right">123.00</td>
+<td align="right">485.00</td>
+<td align="right">1850.00</td>
+<td align="right">652920</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">price</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">878.15</td>
+<td align="right">3697.85</td>
+<td align="right">0</td>
+<td align="right">1.76</td>
+<td align="right">7.47</td>
+<td align="right">25.26</td>
+<td align="right">22130</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+<p>The portfolio transaction dataset is made up of the six fundamental variables described above.<br />
+This real sample dataset contains transactions on 10 investors on 337 traded assets, from January 2010 until December 2018.</p>
+<p>One important feature is the <code>type</code> variable. It states if a transaction is a “Buy” (B) or a “Sell” (S), and only this two values are allowed.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(trx<span class="sc">$</span>type)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;B&quot; &quot;S&quot;</span></span></code></pre></div>
+<p>Moreover, as expected, not all the investors are active on the whole period of analysis.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of transactions of each investor over years</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>trx <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">year =</span> lubridate<span class="sc">::</span><span class="fu">year</span>(datetime)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(investor, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(year) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> year, <span class="at">values_from =</span> n) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(dplyr<span class="sc">::</span><span class="fu">count</span>(trx, investor), <span class="at">by =</span> <span class="st">&quot;investor&quot;</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 x 11</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    investor `2010` `2011` `2012` `2013` `2014` `2015` `2016` `2017` `2018`     n</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;     &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt; &lt;int&gt;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 62NQ8        59     35     66     91    245     NA     NA     NA     NA   496</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 743Q1        64    190    239     NA     NA     NA     NA     NA     NA   493</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 784ZZ       164     26      9    119     45     70     27     29     11   500</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 8ZQ32       196     79     35     41     56     24     46     18      4   499</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 QZ31Q        37    389     56     NA     NA     NA     NA     NA     NA   482</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 QZ621        43    232     77    114     24     NA     NA     NA     NA   490</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 QZNZN        14    107     90     70     33     63    106     NA      7   490</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 46Z68        NA     NA     NA     NA     NA     NA    170    288     24   482</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 44382        NA     NA     NA     NA     NA     NA     NA     75    415   490</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 4Q17Z        NA     NA     NA     NA     NA     NA     NA    202    293   495</span></span></code></pre></div>
+<p>Clearly, they have similar number of transactions as a whole, but they traded on different years.</p>
+</div>
+<div id="market-prices" class="section level2">
+<h2>Market Prices</h2>
+<p>The market prices dataset needs only to have three variables: asset, datetime and price.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mkt <span class="ot">&lt;-</span> DEanalysis<span class="sc">$</span>marketprices <span class="co"># market prices</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mkt)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   asset            datetime  price</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  3BAL 2017-10-25 14:16:00 42.750</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  3BAS 2017-10-25 14:16:00 15.750</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  3BRL 2017-10-25 14:16:00 28.080</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  3BRS 2017-10-25 14:16:00 19.980</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  3CFL 2017-10-25 14:16:00 17.055</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  3CFS 2017-10-25 14:16:00 24.505</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(mkt)</span></code></pre></div>
+<table>
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">mkt</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">258137</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">POSIXct</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">character</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: POSIXct</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">min</th>
+<th align="left">max</th>
+<th align="left">median</th>
+<th align="right">n_unique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">datetime</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">2010-01-05 11:38:00</td>
+<td align="left">2018-12-18 13:24:00</td>
+<td align="left">2013-06-05 09:16:00</td>
+<td align="right">4766</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">asset</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">337</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">price</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">162.7</td>
+<td align="right">1524.68</td>
+<td align="right">0</td>
+<td align="right">1.87</td>
+<td align="right">7</td>
+<td align="right">19.5</td>
+<td align="right">22336</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+<p>Again, not all the assets prices are available in every year because we only need the market prices for those assets for the traded datetime (i.e. the datetime of the transactions dataset).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mkt <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">year =</span> lubridate<span class="sc">::</span><span class="fu">year</span>(datetime)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(asset, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(year) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> year, <span class="at">values_from =</span> n) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 x 10</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    asset `2010` `2011` `2012` `2013` `2014` `2015` `2016` `2017` `2018`</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 A2A      267    552    218    271    321    131    129    227    271</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 ACE      159     25      9    115     45     70     27     29     11</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 ACP      159     25      9    115     45     70     27     29     11</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 ACS      159     25      9    115     45     70     27     29     11</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 AEF      210    519    154    181     78    131    129     29     18</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 AEG       56     33     64     91    243     NA     NA     NA     NA</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 AGL      327    407    425    199    332     85    148     18     11</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 AGRI      64    190    237     NA     NA     NA     NA     NA     NA</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 AIGO     193     79     35     41     56     24     46     18      4</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 AKM       56     33     64     91    243     NA     NA     NA     NA</span></span></code></pre></div>
+<p> </p>
+</div>
+</div>
+<div id="disposition-effect-single-investor-analysis" class="section level1">
+<h1>Disposition Effect: Single Investor Analysis</h1>
+<p>Now, first proceed to analyze the behavior of a single investor.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Investor QZ621</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>trx_QZ621 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(trx, investor <span class="sc">==</span> <span class="st">&quot;QZ621&quot;</span>) <span class="co"># transactions</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>mkt_QZ621 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(mkt, asset <span class="sc">%in%</span> <span class="fu">unique</span>(trx_QZ621<span class="sc">$</span>asset)) <span class="co"># market prices</span></span></code></pre></div>
+<div id="gains-losses-calculation" class="section level2">
+<h2>Gains &amp; Losses Calculation</h2>
+<p>Based solely on this two data frames it is possible to compute the so-called realized gains (RG), realized losses (RL), paper gains (PG), and paper losses (PL), as defined by L. Mazzucchelli et al. (2021).</p>
+<p>To sum up the main concepts are the followings:</p>
+<ul>
+<li><p>Realized Gain / Loss =&gt; whenever an investor closes a position in its portfolio in gain / loss</p></li>
+<li><p>Paper Gain / Loss =&gt; all the open positions at the moment of the transaction, and all the partially closed positions.</p></li>
+</ul>
+<p>The <code>portfolio_compute</code> is the core interface of the package and it is used to perform all the gains and losses computations.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p_res <span class="ot">&lt;-</span> <span class="fu">portfolio_compute</span>(<span class="at">portfolio_transactions =</span> trx_QZ621, <span class="at">market_prices =</span> mkt_QZ621)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(p_res)[, <span class="sc">-</span><span class="dv">5</span>]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor  asset quantity    price RG_count RL_count PG_count PL_count</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    QZ621  DAX2S        0 0.000000        1        0        0        0</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    QZ621      F        0 0.000000        3        2        1        1</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    QZ621 LEVMIB      400 5.551628       32       25      223       93</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    QZ621 MINI1L        0 0.000000        0        4        5        0</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    QZ621 MINI2C        0 0.000000        0        1        0        0</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    QZ621 MINI2F        0 0.000000       10        6        0        4</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(p_res)</span></code></pre></div>
+<table>
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">p_res</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">26</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">9</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">POSIXct</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">character</td>
+<td align="left">2</td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">6</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: POSIXct</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">min</th>
+<th align="left">max</th>
+<th align="left">median</th>
+<th align="right">n_unique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">datetime</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">2011-02-01 17:46:00</td>
+<td align="left">2014-09-17 17:56:00</td>
+<td align="left">2012-02-15 15:03:00</td>
+<td align="right">26</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">investor</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">asset</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">26</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">quantity</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">-751.92</td>
+<td align="right">3926.64</td>
+<td align="right">-20000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00</td>
+<td align="right">400</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">price</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1284.76</td>
+<td align="right">4542.57</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00</td>
+<td align="right">17780</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">RG_count</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5.85</td>
+<td align="right">12.01</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">4.75</td>
+<td align="right">55</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">RL_count</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4.54</td>
+<td align="right">7.02</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">4.00</td>
+<td align="right">26</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">PG_count</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">22.08</td>
+<td align="right">59.55</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1.75</td>
+<td align="right">223</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">PL_count</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">32.46</td>
+<td align="right">95.04</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">2.75</td>
+<td align="right">423</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+<p>Hence, the result is a data frame containing:</p>
+<ul>
+<li>the final portfolio of the investor (first 5 variables)<br />
+</li>
+<li>gains and losses results of the chosen method (all the other variables), where RG = Realized Gains, RL = Realized Losses, PG = Paper Gains, and PL = Paper Losses.</li>
+</ul>
+</div>
+<div id="disposition-effect-computation" class="section level2">
+<h2>Disposition Effect Computation</h2>
+<p>Once that gains and losses have been computed, it is finally possible to evaluate both the disposition effect of the investor and of each traded assets, where the disposition effect is defined as:</p>
+<p><span class="math display">\[DE = \bigg(\frac{RG}{RG + PG}\bigg) - \bigg(\frac{RL}{RL + PL}\bigg)\]</span></p>
+<p>The DE varies between -1 and 1. Positive DE values show the presence of disposition effect irrational behaviors, while negative values show the presence of opposite disposition effect behaviors. A value of zero show that no disposition effect exists.</p>
+<p>You almost never want to compute the disposition effect directly via the <code>disposition_effect</code> function, but you will mostly rely on the quicker and easier <code>disposition_compute</code> interface, since it designed to handle many situations.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>de <span class="ot">&lt;-</span> <span class="fu">disposition_compute</span>(<span class="at">gainslosses =</span> p_res)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(de)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor  asset    DE_count</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    QZ621  DAX2S  1.00000000</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    QZ621      F  0.08333333</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    QZ621 LEVMIB -0.08637421</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    QZ621 MINI1L -1.00000000</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    QZ621 MINI2C -1.00000000</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    QZ621 MINI2F  0.40000000</span></span></code></pre></div>
+<p>As can be seen, <code>disposition_compute</code> calculates a value of disposition effect for each asset. In order to obtain the value of disposition effect of the investor, one can simply compute an aggregate statistic, such as the mean or the median, on the assets’ values.<br />
+To do this we can simply use once again <code>disposition_compute</code> specifying the desired <code>aggregate_fun</code>.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">disposition_compute</span>(<span class="at">gainslosses =</span> p_res, <span class="at">aggregate_fun =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor   DE_count</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    QZ621 -0.2115755</span></span></code></pre></div>
+<p>Moreover, by means of the <code>disposition_summary</code> function it is also easy to summarize the disposition effect behavior of the investor, obtaining common summary statistics.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>de_stat <span class="ot">&lt;-</span> <span class="fu">disposition_summary</span>(<span class="at">gainslosses =</span> p_res)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>de_stat</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor   stat   DE_count</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    QZ621    Min -1.0000000</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    QZ621     Q1 -0.6250000</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    QZ621 Median  0.0000000</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    QZ621     Q3  0.1284957</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    QZ621   Mean -0.2115755</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    QZ621    Max  1.0000000</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7    QZ621  StDev  0.5740599</span></span></code></pre></div>
+<p> </p>
+</div>
+</div>
+<div id="disposition-effect-testing-different-arguments" class="section level1">
+<h1>Disposition Effect: Testing Different Arguments</h1>
+<p>Until now, we limited our analysis to the default parameters of <code>portfolio_compute</code>. However, this function has many different arguments that can be used both to fine tune the analysis and to perform more advanced calculations, such as the so-called <em>portfolio driven disposition effect</em> and the <em>time series disposition effect</em>.</p>
+<p>Hence, we focus here on the usage of five fundamental different arguments.</p>
+<div id="method" class="section level2">
+<h2>Method</h2>
+<p>Let’s start by the <code>method</code> argument. It is probably the most relevant parameter the user can control since it allows to perform five different types of analysis.</p>
+<p>If set to “none”, no gains and losses are computed but the investor’s portfolio is updated at every transaction, resulting in the actual portfolio of the investors at time T (the end of the period).</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">portfolio_compute</span>(<span class="at">portfolio_transactions =</span> trx_QZ621, <span class="at">market_prices =</span> mkt_QZ621, <span class="at">method =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor  asset quantity    price            datetime</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    QZ621  DAX2S        0 0.000000 2012-02-22 11:36:00</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    QZ621      F        0 0.000000 2012-02-08 18:30:00</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    QZ621 LEVMIB      400 5.551628 2011-07-25 15:41:00</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    QZ621 MINI1L        0 0.000000 2011-12-08 18:19:00</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    QZ621 MINI2C        0 0.000000 2011-12-16 10:54:00</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    QZ621 MINI2F        0 0.000000 2012-05-31 19:18:00</span></span></code></pre></div>
+<p>If set to one of “count”, “total”, “value”, or “duration”, gains and losses are computed for the corresponding method.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">portfolio_compute</span>(<span class="at">portfolio_transactions =</span> trx_QZ621, <span class="at">market_prices =</span> mkt_QZ621, <span class="at">method =</span> <span class="st">&quot;count&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor  asset quantity    price            datetime RG_count RL_count</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    QZ621  DAX2S        0 0.000000 2012-02-22 11:36:00        1        0</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    QZ621      F        0 0.000000 2012-02-08 18:30:00        3        2</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    QZ621 LEVMIB      400 5.551628 2011-07-25 15:41:00       32       25</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    QZ621 MINI1L        0 0.000000 2011-12-08 18:19:00        0        4</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    QZ621 MINI2C        0 0.000000 2011-12-16 10:54:00        0        1</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    QZ621 MINI2F        0 0.000000 2012-05-31 19:18:00       10        6</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   PG_count PL_count</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1        0        0</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2        1        1</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3      223       93</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4        5        0</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5        0        0</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6        0        4</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="fu">portfolio_compute</span>(<span class="at">portfolio_transactions =</span> trx_QZ621, <span class="at">market_prices =</span> mkt_QZ621, <span class="at">method =</span> <span class="st">&quot;total&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor  asset quantity    price            datetime RG_total RL_total</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    QZ621  DAX2S        0 0.000000 2012-02-22 11:36:00      500        0</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    QZ621      F        0 0.000000 2012-02-08 18:30:00     4000     3000</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    QZ621 LEVMIB      400 5.551628 2011-07-25 15:41:00    46425    35450</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    QZ621 MINI1L        0 0.000000 2011-12-08 18:19:00        0        4</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    QZ621 MINI2C        0 0.000000 2011-12-16 10:54:00        0        1</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    QZ621 MINI2F        0 0.000000 2012-05-31 19:18:00       10        6</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   PG_total PL_total</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1        0        0</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     2000     1500</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   101640    71585</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4        5        0</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5        0        0</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6        0        6</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="fu">portfolio_compute</span>(<span class="at">portfolio_transactions =</span> trx_QZ621, <span class="at">market_prices =</span> mkt_QZ621, <span class="at">method =</span> <span class="st">&quot;value&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor  asset quantity    price            datetime    RG_value</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    QZ621  DAX2S        0 0.000000 2012-02-22 11:36:00 0.006965944</span></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    QZ621      F        0 0.000000 2012-02-08 18:30:00 0.006973225</span></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    QZ621 LEVMIB      400 5.551628 2011-07-25 15:41:00 0.008168037</span></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    QZ621 MINI1L        0 0.000000 2011-12-08 18:19:00 0.000000000</span></span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    QZ621 MINI2C        0 0.000000 2011-12-16 10:54:00 0.000000000</span></span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    QZ621 MINI2F        0 0.000000 2012-05-31 19:18:00 0.004442795</span></span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       RL_value    PG_value     PL_value</span></span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  0.000000000 0.000000000  0.000000000</span></span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 -0.001190992 0.000678242 -0.001028584</span></span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 -0.008053899 0.583051555 -0.068406690</span></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 -0.005921272 0.031142275  0.000000000</span></span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 -0.002220704 0.000000000  0.000000000</span></span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 -0.002014476 0.000000000 -0.001533113</span></span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a><span class="fu">portfolio_compute</span>(<span class="at">portfolio_transactions =</span> trx_QZ621, <span class="at">market_prices =</span> mkt_QZ621, <span class="at">method =</span> <span class="st">&quot;duration&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor  asset quantity    price            datetime RG_duration RL_duration</span></span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    QZ621  DAX2S        0 0.000000 2012-02-22 11:36:00    28.51667     0.00000</span></span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    QZ621      F        0 0.000000 2012-02-08 18:30:00     5.00000    13.96667</span></span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    QZ621 LEVMIB      400 5.551628 2011-07-25 15:41:00   876.61667  2247.78333</span></span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    QZ621 MINI1L        0 0.000000 2011-12-08 18:19:00     0.00000   492.71667</span></span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    QZ621 MINI2C        0 0.000000 2011-12-16 10:54:00     0.00000     0.35000</span></span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    QZ621 MINI2F        0 0.000000 2012-05-31 19:18:00    46.65000    41.38333</span></span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    PG_duration PL_duration</span></span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0.000000e+00       0.000</span></span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2.666667e-01       6.750</span></span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 1.004278e+04    1788.117</span></span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 4.623000e+02       0.000</span></span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0.000000e+00       0.000</span></span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0.000000e+00       7.300</span></span></code></pre></div>
+<p>In particular:</p>
+<ul>
+<li><code>count</code> computes gains and losses as simple counts<br />
+</li>
+<li><code>total</code> calculates gains and losses as the sum of the quantity<br />
+</li>
+<li><code>value</code> measures the expected percentage gains and losses based on prices<br />
+</li>
+<li><code>duration</code> calculates the time in hours of held gains and losses.</li>
+</ul>
+<p>Instead, when method is set to “all”, then all the four measures are computed.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>p_res_all <span class="ot">&lt;-</span> <span class="fu">portfolio_compute</span>(<span class="at">portfolio_transactions =</span> trx_QZ621, <span class="at">market_prices =</span> mkt_QZ621, <span class="at">method =</span> <span class="st">&quot;all&quot;</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(p_res_all)</span></code></pre></div>
+<table>
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">p_res_all</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">26</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">21</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">POSIXct</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">character</td>
+<td align="left">2</td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">18</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: POSIXct</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">min</th>
+<th align="left">max</th>
+<th align="left">median</th>
+<th align="right">n_unique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">datetime</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">2011-02-01 17:46:00</td>
+<td align="left">2014-09-17 17:56:00</td>
+<td align="left">2012-02-15 15:03:00</td>
+<td align="right">26</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">investor</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">asset</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">26</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">quantity</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">-751.92</td>
+<td align="right">3926.64</td>
+<td align="right">-20000.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">400.00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">price</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1284.76</td>
+<td align="right">4542.57</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">17780.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">RG_count</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5.85</td>
+<td align="right">12.01</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">2.00</td>
+<td align="right">4.75</td>
+<td align="right">55.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">RL_count</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4.54</td>
+<td align="right">7.02</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">2.00</td>
+<td align="right">4.00</td>
+<td align="right">26.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">PG_count</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">22.08</td>
+<td align="right">59.55</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.75</td>
+<td align="right">223.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">PL_count</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">32.46</td>
+<td align="right">95.04</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">2.75</td>
+<td align="right">423.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">RG_total</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">6460.62</td>
+<td align="right">15235.96</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">5.50</td>
+<td align="right">3300.00</td>
+<td align="right">58800.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">RL_total</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">8317.46</td>
+<td align="right">15673.01</td>
+<td align="right">0.00</td>
+<td align="right">3.00</td>
+<td align="right">12.00</td>
+<td align="right">7500.00</td>
+<td align="right">60000.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">PG_total</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">19834.27</td>
+<td align="right">76428.62</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">107.75</td>
+<td align="right">381200.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">PL_total</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">333629.88</td>
+<td align="right">1665597.17</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">3225.00</td>
+<td align="right">8499500.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">RG_value</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.01</td>
+<td align="right">0.03</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+<td align="right">0.15</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">RL_value</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">-0.01</td>
+<td align="right">0.02</td>
+<td align="right">-0.08</td>
+<td align="right">-0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">PG_value</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+<td align="right">0.15</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.58</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">PL_value</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">-7.11</td>
+<td align="right">36.03</td>
+<td align="right">-183.78</td>
+<td align="right">-0.03</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">RG_duration</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">654.71</td>
+<td align="right">2607.32</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">15.64</td>
+<td align="right">42.60</td>
+<td align="right">13304.53</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">RL_duration</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">541.90</td>
+<td align="right">1958.29</td>
+<td align="right">0.00</td>
+<td align="right">7.64</td>
+<td align="right">21.87</td>
+<td align="right">40.02</td>
+<td align="right">9872.20</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">PG_duration</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">833.62</td>
+<td align="right">2384.62</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">24.66</td>
+<td align="right">10042.78</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">PL_duration</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1120.40</td>
+<td align="right">3197.62</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">114.80</td>
+<td align="right">13299.93</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+<p>It is important to notice that the disposition effect is only meaningful for methods <code>coount</code> and <code>total</code>. In all the other cases the disposition difference is used instead.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">disposition_compute</span>(<span class="at">gainslosses =</span> p_res_all, <span class="at">aggregate_fun =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor   DE_count   DE_total   DE_value DD_duration</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    QZ621 -0.2115755 -0.2048348 -0.1806207    112.8141</span></span></code></pre></div>
+</div>
+<div id="allow-short" class="section level2">
+<h2>Allow Short</h2>
+<p>The <code>allow_short</code> argument, instead, allows for short selling transactions. If set to FALSE, short selling will not be allowed and no gains or losses will be computed when this happens.</p>
+</div>
+<div id="time-threshold" class="section level2">
+<h2>Time Threshold</h2>
+<p>The <code>time_threshold</code> argument is a fundamental fine tuning parameter. It essentially controls the minimum time distance necessary to compute gains and losses.<br />
+By default it is set to “0 mins”, implying that gains and losses are always computed.<br />
+However, this may not be desirable since investor’s behaviors are not expected to change with very high frequencies.<br />
+Hence, for instance, setting it to “60 mins” states that gains and losses are calculated only if 60 minutes are passed from the last transaction.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">portfolio_compute</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">portfolio_transactions =</span> trx_QZ621, </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">market_prices =</span> mkt_QZ621, </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">time_threshold =</span> <span class="st">&quot;60 mins&quot;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>This parameter is very important also because it allows to somewhat filters human operations from machines operations, without actually removing them from the analysis.</p>
+<p>Different units may be specified.</p>
+</div>
+<div id="exact-market-prices" class="section level2">
+<h2>Exact Market Prices</h2>
+<p>The argument <code>exact_market_prices</code> is set to TRUE by default, since it is expected that the user provides market prices of each traded asset for each transaction datetime.<br />
+However, when this is not the case, one may want to set it to FALSE to allow for non exact market prices. It essentially means that the nearest price in time is used.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">portfolio_compute</span>(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">portfolio_transactions =</span> trx_QZ621, </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">market_prices =</span> mkt_QZ621, </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">exact_market_prices =</span> <span class="cn">FALSE</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Note, however, that with <code>exact_market_prices</code> set to FALSE, unreliable results may be obtained when transactions occur with low frequency, since the market prices used as reference for the calculation may be outdated.</p>
+</div>
+<div id="interactivity" class="section level2">
+<h2>Interactivity</h2>
+<p>The <code>verbose</code> and <code>progress</code> arguments may be useful for interactive use and for very long calculations on large portfolios of transactions.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">portfolio_compute</span>(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">portfolio_transactions =</span> trx_QZ621, </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">market_prices =</span> mkt_QZ621, </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">progress =</span> <span class="cn">TRUE</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div id="other-arguments" class="section level2">
+<h2>Other Arguments</h2>
+<p>See Portfolio Driven Disposition Effect and <a href="https://marcozanotti.github.io/dispositionEffect/articles/de-timeseries.html">Time Series Disposition Effect</a> for a guide on the usage of other, more advanced, arguments.</p>
+<p> </p>
+</div>
+</div>
+<div id="disposition-effect-multiple-investors-analysis" class="section level1">
+<h1>Disposition Effect: Multiple Investors Analysis</h1>
+<p>Although the analysis of disposition effect can be performed simply on a single investor, the real advantages of this analysis derive from the capacity to study and understand the behaviors of many different investors that actively operate on the financial markets.</p>
+<p>Hence, to fully grasp the power of <code>dispositionEffect</code> package, we can proceed to jointly analyze all the 10 investors’ transactions that are available into the <code>DEanalysis</code> dataset.</p>
+<p>Furthermore, if you are interested in computing the disposition effect on large datasets, please see <a href="https://marcozanotti.github.io/dispositionEffect/articles/de-parallel.html">Disposition Effect in Parallel</a> to understand how the benefits of parallel computing can be exploited within this framework.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list of transactions separated by investor</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>trx_list <span class="ot">&lt;-</span> trx <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(investor) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_split</span>()</span></code></pre></div>
+<div id="gains-losses-calculation-1" class="section level2">
+<h2>Gains &amp; Losses Calculation</h2>
+<p>This time to calculate gains and losses for each investor’s portfolio we can simply <code>map</code> <code>portfolio_compute</code> on the list of transactions, specifying all the other necessary arguments as usual.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p_res_full <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(trx_list, portfolio_compute, <span class="at">market_prices =</span> mkt)</span></code></pre></div>
+</div>
+<div id="disposition-effect-computation-1" class="section level2">
+<h2>Disposition Effect Computation</h2>
+<p>The same procedure can be used to quickly compute the disposition effect on each resulting portfolio.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>de <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(p_res_full, disposition_compute) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">bind_rows</span>()</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(de)</span></code></pre></div>
+<table>
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">de</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">576</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">investor</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">asset</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">337</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">DE_count</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+<td align="right">0.59</td>
+<td align="right">-1</td>
+<td align="right">-0.29</td>
+<td align="right">0.01</td>
+<td align="right">0.5</td>
+<td align="right">1</td>
+<td align="left">▃▃▇▅▅</td>
+</tr>
+</tbody>
+</table>
+<p>As it is shown, <code>de</code> is a data frame containing disposition effect results (variable <code>DE_count</code>) on the 10 investors for all their 337 traded assets.<br />
+Also the average disposition effects of the investors can be easily obtained,</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>de_mean <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(p_res_full, disposition_compute, <span class="at">aggregate_fun =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">bind_rows</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(DE_count))</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>de_mean</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    investor      DE_count</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     46Z68  0.6705760963</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     8ZQ32  0.5318072092</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     62NQ8  0.5049538124</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4     44382  0.4917751394</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5     743Q1  0.0005595955</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6     QZNZN -0.0089654513</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7     4Q17Z -0.1678092462</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8     QZ621 -0.2115754843</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9     QZ31Q -0.2149247491</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10    784ZZ -0.2611998354</span></span></code></pre></div>
+<p>and the disposition effect summary statistics.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>de_stat <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(p_res_full, disposition_summary) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">bind_rows</span>()</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(de_stat, <span class="dv">7</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   investor   stat   DE_count</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    44382    Min -0.3333333</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    44382     Q1  0.3141026</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    44382 Median  0.5000000</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    44382     Q3  0.6500000</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    44382   Mean  0.4917751</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    44382    Max  1.0000000</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7    44382  StDev  0.3506436</span></span></code></pre></div>
+<p>It is clearer now that some investors display irrational behaviors while other don’t.</p>
+</div>
+<div id="visual-analysis" class="section level2">
+<h2>Visual Analysis</h2>
+<p>The graphical inspection of disposition effect results allows to easily understand what is going on and to spot possible interesting behaviors.</p>
+<p>One may want to investigate the overall distribution, or the distributions of every statistics obtained.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(de, <span class="fu">aes</span>(<span class="at">x =</span> DE_count)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">color =</span> <span class="st">&quot;darkblue&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;yellow&quot;</span>) <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">color =</span> <span class="st">&quot;darkblue&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;yellow&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;grey92&quot;</span>),</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;grey85&quot;</span>, <span class="at">colour =</span> <span class="cn">NA</span>),</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Disposition Effect Distribution&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Disposition Effect&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Frequency&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" width="100%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(de_stat, <span class="fu">aes</span>(<span class="at">x =</span> DE_count, <span class="at">y =</span> stat, <span class="at">fill =</span> stat)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density_ridges</span>() <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;grey92&quot;</span>),</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;grey85&quot;</span>, <span class="at">colour =</span> <span class="cn">NA</span>),</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Disposition Effect Statistics&#39; Distributions&quot;</span>,</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;Disposition Effect&quot;</span>, <span class="at">y =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<p><img src="data:image/png;base64,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" width="100%" style="display: block; margin: auto;" /></p>
+<p>Or deeper, one can also analyze investors’ behaviors on some specific assets to understand whether there exists on the market assets that are more subject to irrationality.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>top5_assets <span class="ot">&lt;-</span> trx <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(asset) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(asset)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(de, asset <span class="sc">%in%</span> top5_assets) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> asset, <span class="at">y =</span> DE_count, <span class="at">fill =</span> asset)) <span class="sc">+</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_half_boxplot</span>(<span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">width =</span> <span class="fl">0.8</span>, <span class="at">nudge =</span> <span class="fl">0.02</span>) <span class="sc">+</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_half_violin</span>(<span class="at">side =</span> <span class="st">&quot;r&quot;</span>, <span class="at">nudge =</span> <span class="fl">0.02</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">color =</span> <span class="st">&quot;grey40&quot;</span>) <span class="sc">+</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;grey92&quot;</span>),</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;grey85&quot;</span>, <span class="at">colour =</span> <span class="cn">NA</span>),</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Volatility &amp; Disposition Effect&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Disposition Effect&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" width="100%" style="display: block; margin: auto;" /></p>
+<p> </p>
+<hr />
+<p>For more tutorials on disposition effect visit <a href="https://marcozanotti.github.io/dispositionEffect/">dispositionEffect</a>.</p>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

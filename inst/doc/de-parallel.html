@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Disposition Effect in Parallel</title>
+
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Disposition Effect in Parallel</h1>
+
+
+
+<p> </p>
+<div id="package-loading" class="section level1">
+<h1>Package loading</h1>
+<p>To load the package simply use the usual <code>library</code> function.<br />
+This tutorial requires also some well-known packages that allows for parallel computations in R.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dispositionEffect)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreach)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doParallel)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(future)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(furrr)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bench)</span></code></pre></div>
+<p> </p>
+</div>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<p>The disposition effect analysis is performed on two fundamental types of data frames:</p>
+<ul>
+<li><p>portfolio transactions, that is all the financial transactions an investor did during a specific period of time. A single transaction is made up of 6 features: the investor id, the asset id, the type of the transaction (it can be a buy or a sell), the traded quantity, the traded price, and the datetime.</p></li>
+<li><p>market prices, that is the prices found on the stock markets for each traded asset and each transaction datetimes.</p></li>
+</ul>
+<p> </p>
+</div>
+<div id="the-problem" class="section level1">
+<h1>The Problem</h1>
+<p>Usually, investor’s transactions datasets may be huge in size. Moreover, the dataset of market prices may grow exponentially since it has to contain the market prices for each traded asset on each trading datetime.</p>
+<p>This may cause the computation of gains and losses through the main interface of the package (<code>portfolio_compute</code>) to take few minutes in order to produce the output data frame.</p>
+<p>This computational inefficiency is particularly due to the size of the market price dataset, since for every transaction we need to look for the closest available market price at that datetime for each asset.</p>
+<p>For this reason, we used few parallel methodologies to improve the computation time on large datasets.</p>
+<p> </p>
+</div>
+<div id="the-solution-parallel-computing" class="section level1">
+<h1>The Solution: Parallel Computing</h1>
+<div id="parallel-porfolio_compute" class="section level2">
+<h2>1) Parallel <code>porfolio_compute</code></h2>
+<p>Usually, you may want to apply the computations on many different investors. To do that one can simply build a function that loops on a list containing the transactions portfolios. The first solution to this problem is to develop a parallel version of <code>portfolio_compute</code> that allows to compute results on many investors in parallel, taking advantage of two very useful R packages: <code>future</code> and <code>furrr</code>.</p>
+<p>A very simple version of the function would look like this.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>portfolio_compute_parallel <span class="ot">&lt;-</span> <span class="cf">function</span>(portfolio_transactions, market_prices, <span class="at">plan =</span> <span class="cn">NULL</span>, ...) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    investors_id <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_chr</span>(portfolio_transactions, <span class="sc">~</span>purrr<span class="sc">::</span><span class="fu">pluck</span>(., <span class="st">&quot;investor&quot;</span>)[<span class="dv">1</span>])</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    portfolio_compute_safe <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">safely</span>(portfolio_compute)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(plan)) {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      ncores <span class="ot">&lt;-</span> future<span class="sc">::</span><span class="fu">availableCores</span>()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="co"># if there are more than 2 cores than use parallel computing</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="co"># otherwise use sequential computing</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="co"># RULE: be polite, always leave at least 1 free core</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> ((ncores <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>          new_plan <span class="ot">&lt;-</span> <span class="st">&quot;multisession&quot;</span> <span class="co"># since I am testing on Windows</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>          new_plan <span class="ot">&lt;-</span> <span class="st">&quot;sequential&quot;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>      new_plan <span class="ot">&lt;-</span> plan</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    old_plan <span class="ot">&lt;-</span> future<span class="sc">::</span><span class="fu">plan</span>(<span class="at">strategy =</span> new_plan)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    res <span class="ot">&lt;-</span> furrr<span class="sc">::</span><span class="fu">future_map</span>(</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        portfolio_transactions,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        portfolio_compute_safe,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        market_prices,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        ...)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    res <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">transpose</span>(res)<span class="sc">$</span>result</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>(res) <span class="ot">&lt;-</span> investors_id</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    future<span class="sc">::</span><span class="fu">plan</span>(old_plan) <span class="co"># set back the old plan</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(res)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>This way you simply need to store all the different investor’s portfolios of transactions in a list and pass it to <code>portfolio_compute_parallel</code> as first argument.</p>
+<p>Now let’s try it on the <code>DEanalysis</code> dataset to see if there is any computational improvement.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>trx <span class="ot">&lt;-</span> DEanalysis<span class="sc">$</span>transactions <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(investor) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_split</span>()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>mkt <span class="ot">&lt;-</span> DEanalysis<span class="sc">$</span>marketprices</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> bench<span class="sc">::</span><span class="fu">mark</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;sequential&quot;</span> <span class="ot">=</span> <span class="fu">portfolio_compute_parallel</span>(trx, mkt, <span class="at">plan =</span> <span class="st">&quot;sequential&quot;</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;parallel&quot;</span> <span class="ot">=</span> <span class="fu">portfolio_compute_parallel</span>(trx, mkt, <span class="at">plan =</span> <span class="st">&quot;multisession&quot;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>expression <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;sequential&quot;</span>, <span class="st">&quot;parallel&quot;</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>res[, <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>]</span></code></pre></div>
+<p><img src="data:image/png;base64,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" width="100%" style="display: block; margin: auto;" /></p>
+<p>As you can see, the benefits of parallel code are clear even on this small sample dataset.</p>
+<p> </p>
+</div>
+<div id="separate-files" class="section level2">
+<h2>2) Separate files</h2>
+<p>Although the first solution may be enough with many small investors, when things get bigger it may be better to physically separate transactions and market prices for each investor.</p>
+<p>This way, a single <code>.RData</code> that contains both the transactions and the market prices for a single investor is created. Once this process is finished, one can simply perform the computations with the usual <code>portfolio_compute</code> loading the needed file sequentially or in parallel by means of the <code>foreach</code>package.</p>
+<p>First let’s store every investor’s datasets into its own file. To do this we can make use of the <code>dispositionEffect:::generate_data</code> internal function. In this way, we are able also to optimize the market price dataset, since for each investor we can save only the market prices of his traded assets for that specific period of trading.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cl <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">makeCluster</span>(parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>doParallel<span class="sc">::</span><span class="fu">registerDoParallel</span>(cl)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>foreach<span class="sc">::</span><span class="fu">foreach</span>(<span class="at">i =</span> <span class="fu">seq_along</span>(trx), <span class="at">.errorhandling =</span> <span class="st">&quot;pass&quot;</span>) <span class="sc">%dopar%</span> {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  transactions <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">arrange</span>(trx[[i]], datetime)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  mrkt_prices <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    mkt, </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    asset <span class="sc">%in%</span> <span class="fu">unique</span>(transactions<span class="sc">$</span>asset) <span class="sc">&amp;</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      datetime <span class="sc">&lt;=</span> <span class="fu">max</span>(transactions<span class="sc">$</span>datetime)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> dispositionEffect<span class="sc">:::</span><span class="fu">generate_data</span>(transactions, mrkt_prices, <span class="at">subset =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  nm <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;INV&quot;</span>, i, <span class="st">&quot;.RData&quot;</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">save</span>(df, <span class="at">file =</span> nm)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>parallel<span class="sc">::</span><span class="fu">stopCluster</span>(cl)</span></code></pre></div>
+<p>Now, we can build the function to perform computations loading each single file sequentially or in parallel.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>portfolio_compute_onfiles <span class="ot">&lt;-</span> <span class="cf">function</span>(files, <span class="at">plan =</span> <span class="st">&quot;sequential&quot;</span>) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (plan <span class="sc">==</span> <span class="st">&quot;sequential&quot;</span>) {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    res_list <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">&quot;list&quot;</span>, <span class="at">length =</span> <span class="fu">length</span>(files))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(files)) {</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">load</span>(files[i]) <span class="co"># load the file</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      tmp_res <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        dispositionEffect<span class="sc">::</span><span class="fu">portfolio_compute</span>(</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">portfolio_transactions =</span> df<span class="sc">$</span>transactions,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">market_prices =</span> df<span class="sc">$</span>marketprices</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">error =</span> <span class="cf">function</span>(e) <span class="st">&quot;Error&quot;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>      res_list[[i]] <span class="ot">&lt;-</span> tmp_res <span class="co"># save results</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rm</span>(df, tmp_res)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    cl <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">makeCluster</span>(parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    doParallel<span class="sc">::</span><span class="fu">registerDoParallel</span>(cl)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    res_list <span class="ot">&lt;-</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">foreach</span>(<span class="at">i =</span> <span class="fu">seq_along</span>(files), <span class="at">.errorhandling =</span> <span class="st">&quot;pass&quot;</span>) <span class="sc">%dopar%</span> {</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">load</span>(files[i]) <span class="co"># load the file</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        tmp_res <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>          dispositionEffect<span class="sc">::</span><span class="fu">portfolio_compute</span>(</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>            <span class="at">portfolio_transactions =</span> df<span class="sc">$</span>transactions,</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">market_prices =</span> df<span class="sc">$</span>marketprices</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>          ),</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>          <span class="at">error =</span> <span class="cf">function</span>(e) <span class="st">&quot;Error&quot;</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    parallel<span class="sc">::</span><span class="fu">stopCluster</span>(cl)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res_list)</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;.RData&quot;</span>) <span class="co"># list all single .RData</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> bench<span class="sc">::</span><span class="fu">mark</span>(</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">portfolio_compute_onfiles</span>(files, <span class="at">plan =</span> <span class="st">&quot;sequential&quot;</span>),</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">portfolio_compute_onfiles</span>(files, <span class="at">plan =</span> <span class="st">&quot;multisession&quot;</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>expression <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;sequential&quot;</span>, <span class="st">&quot;parallel&quot;</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>res[, <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>]</span></code></pre></div>
+<p><img src="data:image/png;base64,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" width="100%" style="display: block; margin: auto;" /></p>
+<p> </p>
+</div>
+</div>
+<div id="conclusions" class="section level1">
+<h1>Conclusions</h1>
+<p>As expected, parallel computation coupled with load in memory small portion of datasets is the optimal solution.</p>
+<p>Moreover, sometimes a little gain in computation time can be obtained by setting the <code>exact_market_prices</code> argument of <code>portfolio_compute</code> equal to TRUE. This way, the closest market price search is performed on the very same transaction datetime, but it requires that the market price dataset contains all the prices for each asset at each single transaction datetime.</p>
+<p> </p>
+<p> </p>
+<hr />
+<p><em>This tests have been performed on a 4 core, 8GB RAM, Windows machine</em></p>
+<pre><code>#&gt;                _                           
+#&gt; platform       x86_64-w64-mingw32          
+#&gt; arch           x86_64                      
+#&gt; os             mingw32                     
+#&gt; system         x86_64, mingw32             
+#&gt; status                                     
+#&gt; major          4                           
+#&gt; minor          0.5                         
+#&gt; year           2021                        
+#&gt; month          03                          
+#&gt; day            31                          
+#&gt; svn rev        80133                       
+#&gt; language       R                           
+#&gt; version.string R version 4.0.5 (2021-03-31)
+#&gt; nickname       Shake and Throw</code></pre>
+<p> </p>
+<p>For more tutorials on disposition effect visit <a href="https://marcozanotti.github.io/dispositionEffect/">dispositionEffect</a>.</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
