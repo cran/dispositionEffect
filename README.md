@@ -4,12 +4,15 @@
 # dispositionEffect <a href='https://marcozanotti.github.io/dispositionEffect/index.html'><img src="man/figures/logo.png" align="right" height="200"/></a>
 
 <!-- badges: start -->
-<!--[![CRAN status](https://www.r-pkg.org/badges/version/dispositionEffect)](https://CRAN.R-project.org/package=dispositionEffect)--->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/dispositionEffect)](https://CRAN.R-project.org/package=dispositionEffect)
+![](https://cranlogs.r-pkg.org/badges/dispositionEffect?color=brightgreen)
+![](https://cranlogs.r-pkg.org/badges/grand-total/dispositionEffect?color=brightgreen)
 [![R build
 status](https://github.com/marcozanotti/dispositionEffect/workflows/R-CMD-check/badge.svg)](https://github.com/marcozanotti/dispositionEffect/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/marcozanotti/dispositionEffect/branch/main/graph/badge.svg)](https://codecov.io/gh/marcozanotti/dispositionEffect?branch=master)
+coverage](https://codecov.io/gh/marcozanotti/dispositionEffect/branch/main/graph/badge.svg)](https://app.codecov.io/gh/marcozanotti/dispositionEffect?branch=master)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fmarcozanotti.github.io%2FdispositionEffect%2F)](https://marcozanotti.github.io/dispositionEffect/index.html)
@@ -78,12 +81,18 @@ The package contains few user-friendly purpose specific interfaces:
 
 ## References
 
--   Filippin, Mazzucchelli, and Zanotti, 2021, *An analysis of the short
-    selling impact on the disposition effect extended in the portfolio
-    framework* (working paper)
-
--   Mazzucchelli, 2021, *An Analysis of Short Selling and Volatility
+-   Mazzucchelli, 2022, *An Analysis of Short Selling and Volatility
     Impact on the Disposition Effect* (working paper)
+
+-   Filippin, Mazzucchelli, and Zanotti, 2022, *Portfolio driven
+    disposition effect: the wide framing approach* (working paper)
+
+-   Mazzucchelli, and Zanotti, 2022, *Mean reverting expectations to
+    rationalize the disposition effect* (working paper)
+
+-   [Computing Disposition Effect on Financial Market
+    Data](https://marcozanotti.github.io/dispostionEffect-useR2021/),
+    2021, useR! Conference
 
 ## Getting help
 
